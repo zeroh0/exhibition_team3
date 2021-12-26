@@ -11,7 +11,7 @@
   </welcome-file-list>
   
   <servlet>
-        <servlet-name>MemberController</servlet-name>
+        <servlet-name>MVCController</servlet-name>
         <servlet-class>mvc.controller.ControllerUsingURI</servlet-class>
         <init-param>
             <param-name>configFile</param-name>
@@ -22,7 +22,7 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>MemberController</servlet-name>
+        <servlet-name>MVCController</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
     
@@ -36,7 +36,7 @@
     </filter>
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
-        <url-pattern>/joinForm.jsp</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
     
 </web-app>
