@@ -34,6 +34,7 @@ public class UpdateUserHandler implements CommandHandler {
             response.sendRedirect(request.getContextPath() + "/index.jsp");
             return null;
         } catch (NotEqualsSessionID e) {
+        	request.setAttribute("msg", "현재 접속한 아이디와 다른 아이디입니다.");
             return "/index.jsp";
         }
 

@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.eclipse.jdt.internal.compiler.ast.TrueLiteral;
+
 public class MemberDAO {
     private static MemberDAO instance ;
     private MemberDAO() {}
@@ -72,6 +74,10 @@ public class MemberDAO {
         }
     } //
 
+    /**
+     * 회원정보 수정 
+     * update  
+     */
     public void updateUser(Connection conn, MemberDTO member) throws SQLException {
         PreparedStatement pstmt = null;
         String sql = "update member " +
@@ -92,6 +98,22 @@ public class MemberDAO {
         } finally {
             DBUtil.close(pstmt);
         }
+    }
+    
+    /**
+     * 회원 탈퇴
+     * delete  
+     */
+    public void deleteUser(Connection conn, MemberDTO member) throws SQLException {
+    	PreparedStatement pstmt = null;
+    	String sql = "delete from member where id = ?";
+    	try {
+    		pstmt = conn.prepareStatement(sql);
+    		pstmt.setString(1, member.getId());
+    		pstmt.executeUpdate();
+    	} finally {
+			DBUtil.close(pstmt);
+		}
     }
 
 }

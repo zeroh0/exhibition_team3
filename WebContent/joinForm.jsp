@@ -155,6 +155,12 @@
 			return true;
 		}
 	</script>
+	<script>
+	if('${requestScope.msg}' != '') {
+		var message = '${requestScope.msg}';
+		alert(message);
+	}
+	</script>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/join.do" method="post" name="newMember" onsubmit="return checkForm()">

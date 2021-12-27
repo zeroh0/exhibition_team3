@@ -3,6 +3,12 @@
 <html>
   <head>
     <title>title</title>
+    <script>
+	if('${requestScope.msg}' != '') {
+		var message = '${requestScope.msg}';
+		alert(message);
+	}
+	</script>
   </head>
   <body>
   <p>
@@ -15,7 +21,7 @@
       <c:when test="${member != null}">
         <span>${member.name} 환영합니다!</span>
         <a href="${pageContext.request.contextPath}/updateForm.jsp">회원정보수정</a>
-        <a href="#">회원탈퇴</a>
+        <a href="${pageContext.request.contextPath}/deleteForm.jsp">회원탈퇴</a>
         <a href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
       </c:when>
     </c:choose>

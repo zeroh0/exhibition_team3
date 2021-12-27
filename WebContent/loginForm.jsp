@@ -2,6 +2,12 @@
 <html>
 <head>
     <title>로그인</title>
+    <script>
+	if('${requestScope.msg}' != '') {
+		var message = '${requestScope.msg}';
+		alert(message);
+	}
+	</script>
 </head>
 <body>
     <form action="${pageContext.request.contextPath}/login.do" method="post">

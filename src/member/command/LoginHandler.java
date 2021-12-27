@@ -29,8 +29,10 @@ public class LoginHandler implements CommandHandler {
             response.sendRedirect(request.getContextPath() + "/index.jsp");
             return null;
         } catch (NotExistException e) {
+        	request.setAttribute("msg", "존재하지 않는 아이디입니다.");
             return FORM_VIEW;
         } catch (NotMatchPasswordException e) {
+        	request.setAttribute("msg", "잘못된 비밀번호입니다.");
             return FORM_VIEW;
         }
     }

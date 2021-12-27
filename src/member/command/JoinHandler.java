@@ -41,6 +41,7 @@ public class JoinHandler implements CommandHandler {
             request.getSession().setAttribute("member", member); // 로그인 세션 아이디 set
             return "/index.jsp";
         } catch (DuplicateIdException e) {
+        	request.setAttribute("msg", "중복된 아이디가 존재합니다.");
             return FORM_VIEW;
         }
     }
