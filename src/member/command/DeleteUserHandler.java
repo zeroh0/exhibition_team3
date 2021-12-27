@@ -19,8 +19,6 @@ public class DeleteUserHandler implements CommandHandler {
 		DeleteUserService deleteUserService = new DeleteUserService();
 		
 		try {
-			System.out.println(password);
-			System.out.println(member.getId());
 			deleteUserService.deleteUser(member.getId(), password);
 			request.getSession().invalidate();
 			response.sendRedirect(request.getContextPath() + "/index.jsp");
