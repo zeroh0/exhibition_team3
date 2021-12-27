@@ -10,6 +10,8 @@ import member.service.exception.NotMatchPasswordException;
 import mvc.command.CommandHandler;
 
 public class DeleteUserHandler implements CommandHandler {
+	
+	private static final String FORM_VIEW = "/member/deleteForm.jsp";
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -25,7 +27,7 @@ public class DeleteUserHandler implements CommandHandler {
 			return null;
 		} catch (NotExistException | NotMatchPasswordException e) {
 			request.setAttribute("msg","정확한 비밀번호를 입력해주세요.");
-			return "deleteForm.jsp";
+			return FORM_VIEW;
 		}
 	}
 	

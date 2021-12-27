@@ -115,5 +115,40 @@ public class MemberDAO {
 			DBUtil.close(pstmt);
 		}
     }
-
+    
+    /**
+     * 아이디 찾기
+     */
+    public MemberDTO selectedByNameEmail(Connection conn, String name, String email) throws SQLException {
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String sql = "select * from member where name = ? and email = ?";
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, name);
+            pstmt.setString(2, email);
+            rs = pstmt.executeQuery();
+            MemberDTO member = null;
+            if (rs.next()) {
+                member = new MemberDTO(
+                    rs.getString("id"),
+                    rs.getString("password"),
+                    rs.getString("name"),
+                    rs.getString("email"),
+                    rs.getString("phone"),
+                    rs.getString("zipcode"),
+                    rs.getString("roadAddress"),
+                    rs.getString("jibunAddress"),
+                    rs.getString("detailAddress"),
+                    rs.getString("extraAddress"),
+                    rs.getTimestamp("register_day")
+                );
+            }
+            return member;
+        } finally {
+            DBUtil.close(pstmt);
+            DBUtil.close(rs);
+        }
+    } //
+    
 }

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class JoinHandler implements CommandHandler {
 
-    private static final String FORM_VIEW = "/joinForm.jsp";
+    private static final String FORM_VIEW = "/member/joinForm.jsp";
 
     @Override
     public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -168,8 +168,10 @@
 		<tr>
 			<td>아이디</td>
 			<td>
-				<input type="text" name="id" placeholder="아이디" required>
-				<button>아이디 중복 체크</button>
+				<input type="text" name="id" placeholder="아이디" id="id" required>
+				<button>
+					아이디 중복 체크
+				</button>
 			</td>
 		</tr>
 

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoginHandler implements CommandHandler {
 
-    private static final String FORM_VIEW = "loginForm.jsp";
+    private static final String FORM_VIEW = "/member/loginForm.jsp";
 
     @Override
     public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
