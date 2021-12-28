@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoginHandler implements CommandHandler {
 
-    private static final String FORM_VIEW = "/member/loginForm.jsp";
+    private static final String FORM_VIEW = "./member/loginForm.jsp?error=1";
 
     @Override
     public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -29,12 +29,11 @@ public class LoginHandler implements CommandHandler {
             response.sendRedirect(request.getContextPath() + "/index.jsp");
             return null;
         } catch (NotExistException e) {
-        	request.setAttribute("msg", "존재하지 않는 아이디입니다.");
-            return FORM_VIEW;
+        	response.sendRedirect(FORM_VIEW);
         } catch (NotMatchPasswordException e) {
-        	request.setAttribute("msg", "잘못된 비밀번호입니다.");
-            return FORM_VIEW;
+        	response.sendRedirect(FORM_VIEW);
         }
+        return null;
     }
 
 }

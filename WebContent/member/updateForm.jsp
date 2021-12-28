@@ -5,6 +5,7 @@
 <head>
 	<title>회원정보수정</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href="./resources/css/styles.css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -132,98 +133,129 @@
 			return true;
 		}
 	</script>
+<style>
+.ct{
+	margin-top: 50px;
+}
+</style>	
 </head>
 <body>
+<jsp:include page="/menu.jsp"/>
+<header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
+     <div class="text-center my-5">
+         <h1 class="text-white fs-3 fw-bolder">Update</h1>
+         <p class="text-gray-50 mb-0">Personal Information</p>
+     </div>
+</header>
+
 <c:set var="member" value="${sessionScope.member}"/>
-<form action="${pageContext.request.contextPath}/updateMember.do" method="post" name="newMember" onsubmit="return checkForm()">
-	<table>
-		<tr>
-			<td>아이디</td>
-			<td>
-				<input type="text" name="id" placeholder="아이디" value="${member.id}" readonly>
-				<button>아이디 중복 체크</button>
-			</td>
-		</tr>
-
-		<tr>
-			<td>비밀번호</td>
-			<td><input type="password" name="password" placeholder="비밀번호" required></td>
-		</tr>
-
-		<tr>
-			<td>비밀번호 확인</td>
-			<td><input type="password" name="password_chk" placeholder="비밀번호 확인" required></td>
-		</tr>
-
-		<tr>
-			<td>이름</td>
-			<td><input type="text" name="name" placeholder="이름" value="${member.name}" readonly></td>
-		</tr>
-
-		<tr>
-			<td>이메일</td>
-			<td>
-				<input type="text" name="email1" value="${fn:substring(member.email,0,fn:indexOf(member.email,'@'))}" required>
-				@
-				<input type="text" name="email2" value="${fn:substring(member.email,fn:indexOf(member.email,'@')+1,fn:length(member.email)) }" required>
-			</td>
-		</tr>
-
-		<tr>
-			<td>전화번호</td>
-			<td>
-				<input type="text" name="phone1" value="${fn:substring(member.phone,0,3)}"> -
-				<input type="text" name="phone2" value="${fn:substring(member.phone,4,8)}"> -
-				<input type="text" name="phone3" value="${fn:substring(member.phone,9,13)}">
-			</td>
-		</tr>
-
-		<tr>
-			<td>우편번호</td>
-			<td>
-				<input name="zipcode" id="zipcode" type="text" placeholder="우편번호" value="${member.zipcode}" required>
-				<input type="button" onclick="Postcode()" value="우편번호 찾기">
-				<span id="guide" style="color:#999;display:none"></span>
-			</td>
-		</tr>
-
-		<tr>
-			<td>도로명주소</td>
-			<td>
-				<input name="roadAddress" id="roadAddress"  type="text" placeholder="도로명주소" value="${member.roadAddress}" required readonly>
-			</td>
-		</tr>
-
-		<tr>
-			<td>지번주소</td>
-			<td>
-				<input name="jibunAddress" id="jibunAddress"  type="text" placeholder="지번주소" value="${member.jibunAddress}" required readonly>
-			</td>
-		</tr>
-
-		<tr>
-			<td>상세주소</td>
-			<td>
-				<input name="detailAddress" id="detailAddress" type="text" placeholder="상세주소" value="${member.detailAddress}">
-			</td>
-		</tr>
-
-		<tr>
-			<td>참고항목</td>
-			<td>
-				<input name="extraAddress" id="extraAddress" type="text" placeholder="참고항목" value="${member.extraAddress}" required readonly>
-			</td>
-		</tr>
-
-		<tr>
-			<td colspan="2">
-                <input type="reset" value="취소">
-			    <input type="submit" value="수정">
-            </td>
-		</tr>
-
-	</table>
+<div class="container ct">
+<form action="${pageContext.request.contextPath}/updateMember.do" method="post" 
+	class="form-horizontal" name="newMember" onsubmit="return checkForm()">
+	<div class="form-group row">
+         <label class="col-sm-2">아이디</label>
+         <div class="col-sm-3">
+              <input name="id" type="text" class="form-control" placeholder="id" value="${member.id}" readonly>
+         </div>
+    </div>
+	<div class="form-group row">
+          <label class="col-sm-2">비밀번호</label>
+          <div class="col-sm-3">
+               <input name="password" type="password" class="form-control" placeholder="password" value="${member.password}" required>
+          </div>
+          <div>
+          	<input type="button" value="비밀번호변경"  class="btn btn-success" onclick="changePasswordForm()">
+          </div>
+    </div>
+    
+    <div class="form-group row">
+          <label class="col-sm-2">비밀번호확인</label>
+          <div class="col-sm-3">
+               <input name="password_chk" type="password" class="form-control" placeholder="password" value="${member.password}" required>
+          </div>
+    </div>
+	<div class="form-group row">
+           <label class="col-sm-2">이름</label>
+           <div class="col-sm-3">
+                <input name="name" type="text" class="form-control" placeholder="name" required value="${member.name}">
+           </div>
+     </div>
+	<div class="form-group row">
+             <label class="col-sm-2">이메일</label>
+             <div class="col-sm-10">
+                <input type="text" name="mail1" maxlength="50" required value="${fn:substring(member.email,0,fn:indexOf(member.email,'@'))}">@
+                <input type="text" name="mail2" maxlength="50" required value="${fn:substring(member.email,fn:indexOf(member.email,'@')+1,fn:length(member.email)) }">
+             </div>
+       </div>
+		<div class="form-group row">
+         <label class="col-sm-2">전화번호</label>
+         <div class="col-sm-5">
+               <input maxlength="3" size="4" name="phone1" value="${fn:substring(member.phone,0,3)}">
+				- <input maxlength="4" size="4" name="phone2" value="${fn:substring(member.phone,4,8)}"> -
+				<input maxlength="4" size="4" name="phone3" value="${fn:substring(member.phone,9,13)}">
+         </div>
+       </div>
+		<div class="form-group row">
+             <label class="col-sm-2">우편번호</label>
+             <div class="col-sm-3">
+                 <input name="zipcode" id="zipcode" type="text" class="form-control" placeholder="우편번호" value="${member.zipcode}" required>
+                 <input type="button" onclick="Postcode()" value="우편번호 찾기"><br>
+             </div>
+         </div>
+          <div class="form-group row">
+             <label class="col-sm-2">도로명주소</label>
+             <div class="col-sm-5">
+                 <input name="roadAddress" id="roadAddress"  type="text" class="form-control" placeholder="도로명주소" value="${member.roadAddress}" required>
+             </div>
+         </div>
+         <div class="form-group row">
+             <label class="col-sm-2">지번주소</label>
+             <div class="col-sm-5">
+                 <input name="jibunAddress" id="jibunAddress"  type="text" class="form-control" placeholder="지번주소" value="${member.jibunAddress}" required>
+             </div>
+         </div>
+         <span id="guide" style="color:#999;display:none"></span>
+         <div class="form-group row">
+             <label class="col-sm-2">상세주소</label>
+             <div class="col-sm-5">
+                 <input name="detailAddress"  id="detailAddress" type="text" class="form-control" placeholder="상세주소" value="${member.detailAddress}" required>
+             </div>
+         </div>
+         <div class="form-group row">
+             <label class="col-sm-2">참고항목</label>
+             <div class="col-sm-3">
+                 <input name="extraAddress"id="extraAddress" type="text" class="form-control" placeholder="참고항목" value="${member.extraAddress}" required>
+             </div>
+         </div>
+		<div class="form-gorup row">
+          <div class="col-sm-offset-2 col-sm-10">
+               <input type="submit" class="btn btn-primary" value="수정">
+               <input type="reset"  class="btn btn-warning" value="취소" onclick="reset()">
+               <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">회원탈퇴</button>
+          </div>
+       </div>
 </form>
+</div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">회원탈퇴</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        탈퇴하시겠습니까?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="location.href='deleteMember.jsp'">회원탈퇴</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
