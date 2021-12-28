@@ -27,5 +27,6 @@
         <a href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
       </c:when>
     </c:choose>
+    <a href="${pageContext.request.contextPath}/BbsListAction.do?pageNum=1">게시판</a>
   </body>
 </html>

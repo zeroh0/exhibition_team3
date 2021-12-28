@@ -13,20 +13,6 @@ public class BbsDTO {
 	private int re_step;// ref내의 순서
 	private int re_level;// 들여쓰기
 	
-	public BbsDTO(int num, String writer, String subject, String content, int readCount, String password,
-			String reg_date, String ip, int ref, int re_step, int re_level) {
-		this.num = num;
-		this.writer = writer;
-		this.subject = subject;
-		this.content = content;
-		this.readCount = readCount;
-		this.password = password;
-		this.reg_date = reg_date;
-		this.ip = ip;
-		this.ref = ref;
-		this.re_step = re_step;
-		this.re_level = re_level;
-	}
 
 	public int getNum() {
 		return num;
