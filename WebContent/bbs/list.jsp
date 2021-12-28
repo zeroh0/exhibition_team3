@@ -8,11 +8,11 @@
 <meta charset="UTF-8">
 <script>
 function checkForm(){
-	console.log('${sessionScope.sessionId}');
-	if(${sessionScope.sessionId==null}){
+	console.log('${sessionScope.member.id}');
+	if(${sessionScope.member.id==null}){
 		$('#myModal').modal('show');
 	}else{
-		location.href="./BbsWriteForm.go?id=${sessionScope.sessionId}&pageNum=${pageNum}&items=${items}&text=${text}";
+		location.href="./BbsWriteForm.go?id=${sessionScope.member.id}&pageNum=${pageNum}&items=${items}&text=${text}";
 	}	
 }
 </script>
@@ -54,7 +54,7 @@ function checkForm(){
       </c:forEach>
          <a href="./BbsViewAction.go?firstNum=${firstNum}&lastNum=${lastNum}&num=${bbs.num}&pageNum=${pageNum}&items=${items}&text=${text}">${bbs.subject}</a></td>
          <td>${bbs.reg_date}</td>
-         <td>${bbs.readCount}</td>
+         <td>${bbs.readcount}</td>
          <td>${bbs.writer}</td>
         </tr>        	    	       
       </c:forEach>
@@ -139,7 +139,7 @@ function checkForm(){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">아니오</button>
-        <button type="button" class="btn btn-primary" onclick='javascript:location.href="./BbsWriteForm.go?id=${sessionScope.sessionId}&pageNum=${pageNum}&items=${items}&text=${text}"'>예</button>
+        <button type="button" class="btn btn-primary" onclick='javascript:location.href="./BbsWriteForm.go?id=${sessionScope.member.id}&pageNum=${pageNum}&items=${items}&text=${text}"'>예</button>
       </div>
     </div>
   </div>

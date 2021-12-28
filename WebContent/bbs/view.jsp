@@ -30,7 +30,7 @@ ${bbs.re_level} --%>
           class="form-horizontal" 
           method="post"
           >
-         <input type="hidden" name="id" value="${sessionId}"><!-- request->session->application순으로 조회 -->
+         <input type="hidden" name="id" value="${member.id}"><!-- request->session->application순으로 조회 -->
          <input name="ref" type="hidden" value="${bbs.ref}">
          <input name="re_step" type="hidden" value="${bbs.re_step}">
          <input name="re_level" type="hidden" value="${bbs.re_level}">
@@ -61,12 +61,11 @@ ${bbs.re_level} --%>
         	</button>
              <input type="submit" class="btn btn-success" value="수정">
             <a href="./BbsListAction.go?pageNum=${page}&items=${items}&text=${text}" class="btn btn-primary">목록</a>
-            <a href="./BbsReplyForm.go?id=${sessionId}&pageNum=${page}&items=${items}&text=${text}&num=${bbs.num}&ref=${bbs.ref}&re_step=${bbs.re_step}&re_level=${bbs.re_level}" 
+            <a href="./BbsReplyForm.go?id=${member.id}&pageNum=${page}&items=${items}&text=${text}&num=${bbs.num}&ref=${bbs.ref}&re_step=${bbs.re_step}&re_level=${bbs.re_level}" 
             class="btn btn-warning">답변</a>
 
         
-        <a href="./BbsGoodBadAction.go?firstNum=${firstNum}&lastNum=${lastNum}&id=${sessionId}&pageNum=${page}&items=${items}&text=${text}&num=${bbs.num}&ref=${bbs.ref}&re_step=${bbs.re_step}&re_level=${bbs.re_level}&good=1&bad=0" class="btn btn-primary">좋아요${bbsGoodbad.good }</a>
-        <a href="./BbsGoodBadAction.go?firstNum=${firstNum}&lastNum=${lastNum}&id=${sessionId}&pageNum=${page}&items=${items}&text=${text}&num=${bbs.num}&ref=${bbs.ref}&re_step=${bbs.re_step}&re_level=${bbs.re_level}&good=0&bad=1" class="btn btn-primary">싫어요${bbsGoodbad.bad }</a></div>
+        </div>
    
     </div>
     </form>
@@ -97,7 +96,7 @@ ${bbs.re_level} --%>
         </button>
       </div>
       <div class="modal-body">
-         ${board.num}번 글을 삭제하시겠습니까?
+         ${bbs.num}번 글을 삭제하시겠습니까?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">아니오</button>

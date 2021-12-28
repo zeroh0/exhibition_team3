@@ -13,7 +13,7 @@
   	   <c:choose>
   	     <c:when test="${empty sessionId}"><%-- ${sessionId==null} --%>
   	        <li class="nav-item">
-  	          <a class="nav-link" href="<c:url value="/member/loginMember.jsp" />">로그인</a>
+  	          <a href="<c:url value="/member/loginForm.jsp"/>">로그인</a>
   	          <a class="nav-link" href="<c:url value="/member/addMember.jsp" />">회원 가입</a>
   	        </li>
   	     </c:when>

@@ -34,7 +34,7 @@ public class ControllerUsingURI extends HttpServlet {
                 commandMap.put(command, actionCommand);
             }
         } catch (Exception e) {
-            System.out.println("에러: " + e.getMessage());
+            System.out.println("에러Controller: " + e.getMessage());
         }
     }
 

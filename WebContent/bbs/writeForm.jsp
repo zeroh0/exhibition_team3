@@ -13,11 +13,11 @@
    </div>
 </div>
 <div class="container">
-   <form name="newWrite" action="./BbsWriteAction.go"
+   <form name="newWrite" action="${pageContext.request.contextPath}/BbsWriteAction.go"
       class="form-horizontal" 
       method="post" 
       onsubmit="return checkForm()">
-      <input name="id" type="hidden" class="form-control" value="${sessionId}">
+      <input name="id" type="hidden" class="form-control" value="${member.id}">
       <input name="pageNum" type="hidden" value="${pageNum}">
       <input name="items" type="hidden" value="${items}">
       <input name="text" type="hidden" value="${text}">

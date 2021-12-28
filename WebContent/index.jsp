@@ -27,6 +27,6 @@
         <a href="<c:url value="/logout.do"/>">로그아웃</a>
       </c:when>
     </c:choose>
-    <a href="<c:url value="/BbsListAction.do?pageNum=1"/>">게시판</a>
+    <a href="<c:url value="/BbsListAction.go?pageNum=1"/>">게시판</a>
   </body>
 </html>

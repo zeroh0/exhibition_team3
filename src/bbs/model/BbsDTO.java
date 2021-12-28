@@ -5,7 +5,7 @@ public class BbsDTO {
 	private String writer;//로그인 아이디
 	private String subject;
 	private String content;
-	private int readCount;//초기값 0
+	private int readcount;//초기값 0
 	private String password; //비밀번호 
 	private String reg_date;//등록일자
 	private String ip;//접속ip는 request에서 구함.
@@ -46,12 +46,12 @@ public class BbsDTO {
 		this.content = content;
 	}
 
-	public int getReadCount() {
-		return readCount;
+	public int getReadcount() {
+		return readcount;
 	}
 
-	public void setReadCount(int readCount) {
-		this.readCount = readCount;
+	public void setReadcount(int readcount) {
+		this.readcount = readcount;
 	}
 
 	public String getPassword() {
