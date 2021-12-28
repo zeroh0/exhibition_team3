@@ -15,18 +15,18 @@
     <c:set var="member" value="${sessionScope.member}"/>
     <c:choose>
       <c:when test="${member == null}">
-        <a href="${pageContext.request.contextPath}/member/loginForm.jsp">로그인</a>
-        <a href="${pageContext.request.contextPath}/member/joinForm.jsp">회원가입</a>
-        <a href="${pageContext.request.contextPath}/member/findIdForm.jsp">아이디 찾기</a>
-        <a href="${pageContext.request.contextPath}/member/findPasswordForm.jsp">비밀번호 찾기</a>
+        <a href="<c:url value="/member/loginForm.jsp"/>">로그인</a>
+        <a href="<c:url value="/member/joinForm.jsp"/>">회원가입</a>
+        <a href="<c:url value="/member/findIdForm.jsp"/>">아이디 찾기</a>
+        <a href="<c:url value="/member/findPasswordForm.jsp"/>">비밀번호 찾기</a>
       </c:when>
       <c:when test="${member != null}">
         <span>${member.name} 환영합니다!</span>
-        <a href="${pageContext.request.contextPath}/member/updateForm.jsp">회원정보수정</a>
-        <a href="${pageContext.request.contextPath}/member/deleteForm.jsp">회원탈퇴</a>
-        <a href="${pageContext.request.contextPath}/logout.do">로그아웃</a>
+        <a href="<c:url value="/member/updateForm.jsp"/>">회원정보수정</a>
+        <a href="<c:url value="/member/deleteForm.jsp"/>">회원탈퇴</a>
+        <a href="<c:url value="/logout.do"/>">로그아웃</a>
       </c:when>
     </c:choose>
-    <a href="${pageContext.request.contextPath}/BbsListAction.do?pageNum=1">게시판</a>
+    <a href="<c:url value="/BbsListAction.do?pageNum=1"/>">게시판</a>
   </body>
 </html>
