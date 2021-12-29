@@ -37,6 +37,7 @@ create table exhbn
 );
 
 create sequence bbs_seq start with 1 increment by 1;
+create sequence board_seq start with 1 increment by 1;
 
 create table BBS
 (
