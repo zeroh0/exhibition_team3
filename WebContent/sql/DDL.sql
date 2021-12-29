@@ -17,6 +17,9 @@ create table member
     register_day  varchar(50)
 );
 
+/* oracle */
+create sequence exhbn_seq start with 1 increment by 1;
+
 create table exhbn
 (
     e_id        int          not null primary key,
@@ -30,7 +33,8 @@ create table exhbn
     image       varchar(100) null
 );
 
-/* oracle */
+create sequence bbs_seq start with 1 increment by 1;
+
 create table BBS
 (
     NUM       NUMBER         not null primary key,
