@@ -4,87 +4,87 @@
 <!DOCTYPE html><html><head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script type="text/javascript" src="./resources/js/validation.js"></script><!--  추가 -->
-<title>전시 수정</title>
+<script type="text/javascript" src="./resources/js/validation.js"></script>
+<title>Insert title here</title>
 </head>
 <body>
 <jsp:include page="../menu.jsp"/>
 <div class="jumbotron">
   <div class="container">
-     <h1 class="display-3">미술품 수정</h1>
+     <h1 class="display-3">미술품 등록</h1>
   </div>
 </div>
 <div class="container">
-  <form name="newProduct" action="${pageContext.request.contextPath}/updateExhbnAction.do" class="form-horizontal" 
+  <form name="newProduct" action="./updateExhbnAction.do" class="form-horizontal" 
         method="post" enctype="multipart/form-data" 
       >
-    <%-- <div class="form-group row">
+    <div class="form-group row">
        <label class="col-sm-2">전시번호</label>
        <div class="col-sm-3">
-         <input type="text" name="exhbnId" id="productId" class="form-control" disabled="disabled" value="${dto.e_id}">
+         <input type="text" name="e_id" id="productId" value="${dto.e_id }" class="form-control">
        </div>
-    </div> --%>
-    <input type="hidden" name="e_id" value="${dto.e_id}">
+    </div>
    <div class="form-group row">
        <label class="col-sm-2">전시 제목</label>
        <div class="col-sm-3">
        <%--페이지 출력시 name태그에 자동 으로 커서이동 처리 autofocus() --%>
-         <input type="text" name="title" class="form-control" value="${dto.title}"  autofocus required>
+         <input type="text" name="title" value="${dto.title }"class="form-control"  autofocus required>
        </div>
     </div>
     
   <div class="form-group row">
        <label class="col-sm-2">전시 항목</label>
        <div class="col-sm-3">
-         <input type="text" name="category" id="unitPrice" value="${dto.category}" class="form-control" required>
+         <input type="text" name="category" id="unitPrice" value="${dto.category }" class="form-control" required>
        </div>
    </div>
     <div class="form-group row">
        <label class="col-sm-2">전시 설명</label>
        <div class="col-sm-5">
-         <textarea rows="2" cols="50" name="description" class="form-control" required>${dto.description}</textarea>
+         <textarea rows="2" cols="50" name="description" class="form-control" required>${dto.description }</textarea>
        </div>
    </div>
    <div class="form-group row">
        <label class="col-sm-2">전시 요금</label>
        <div class="col-sm-3">
-         <input type="text" name="price" class="form-control" value="${dto.price}" required>
+         <input type="text" name="price" value="${dto.price }" class="form-control" required>
        </div>
    </div>
   <div class="form-group row">
        <label class="col-sm-2">전시 장소</label>
        <div class="col-sm-3">
-         <input type="text" name="location" class="form-control" value="${dto.location}" required>
+         <input type="text" name="location" value="${dto.location }" class="form-control" required>
        </div>
    </div>
    
    <div class="form-group row">
        <label class="col-sm-2">전시 기간</label>
        <div class="col-sm-3">
-         <input type="text" name="period"  id="unitsInStock" class="form-control" value="${dto.period}" required>
+         <input type="text" name="period" value="${dto.period }" id="unitsInStock" class="form-control" required>
        </div>
    </div>
    <div class="form-group row">
        <label class="col-sm-2">전시 시간</label>
        <div class="col-sm-5">
-       <input type="text" name="time"  id="unitsInStock" class="form-control" value="${dto.time}" required>
+       <input type="text" name="time" value="${dto.time }" id="unitsInStock" class="form-control" required>
        </div>
    </div>
    <div class="form-group row">
       <label class="col-sm-2">이미지</label>
        <div class="col-sm-5">
          <img style="width: 400px;" id="preview-image" >
-         <input type="file" name="image" class="form-control" id="input-image">
+         <input type="file" name="image" value="${dto.image }" class="form-control" id="input-image">
        </div>
    </div>
    <div class="form-group row">
        <div class="col-sm-offset-2 col-sm-10">
-         <input type="submit" value="미술품 수정" class="btn btn-primary" onclick="return chk()">
+         <input type="submit" value="미술품 수정" class="btn btn-primary">
        </div>
+   
    </div>
+   
   </form>
 </div>
-<jsp:include page="../footer.jsp"/>
 <script>
 function readImage(input) {
     // 인풋 태그에 파일이 있는 경우
@@ -105,5 +105,6 @@ function readImage(input) {
 const inputImage = document.getElementById("input-image")
 inputImage.addEventListener("change", e => {readImage(e.target)})
 </script>
+<jsp:include page="../footer.jsp"/>
 </body>
 </html>

@@ -3,6 +3,7 @@ package exhbn.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -175,7 +176,7 @@ public class ExhbnDAO {
 	/**
 	 * 전시 수정 
 	 */
-	public void updateexhbn(ExhbnDTO exhbn) {
+	public void updateexhbn(ExhbnDTO exhbn) throws SQLException, ClassNotFoundException {
 	    Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs=null;
@@ -185,7 +186,6 @@ public class ExhbnDAO {
 		try { 
 			conn = DBConnectionOracle.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			System.out.println("sql:"+sql);
 			
 			pstmt.setString(1, exhbn.getTitle());
 			pstmt.setString(2, exhbn.getCategory());
@@ -200,16 +200,40 @@ public class ExhbnDAO {
 			pstmt.executeUpdate();
 				
 
-	 }catch(Exception e){
+	 } finally {
+		 DBUtil.close(rs);
+		 DBUtil.close(pstmt);
+		 DBUtil.close(conn);	
+	  } 
+	} //
+	
+	/**
+	 * 전시 삭제 
+	 */
+	public void deleteexhbn(int id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		
+		String sql = "delete from exhbn where e_id=?";
+		
+		try { //삭제 처리
+			conn = DBConnectionOracle.getConnection();    
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);			
+	        pstmt.executeUpdate();
+			
+	}catch(Exception e){
 		  System.out.println("에러:"+e);
-	  }finally {
+	}finally {
 		  try {
 			    if(pstmt!=null) pstmt.close();
 			    if(conn!=null)conn.close();
 		  }catch(Exception e) {
 			  throw new RuntimeException(e.getMessage());
 		  }
-	  } 
-	} //
+	 } 	
+		
+	} // 
 	
 }

@@ -57,7 +57,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="/resources/images/${exh.image }" width="450" height="300" alt="..." />
+                            <img class="card-img-top" src="/resources/images/${exh.image}" width="450" height="300" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">

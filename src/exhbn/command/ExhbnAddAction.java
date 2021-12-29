@@ -24,7 +24,6 @@ public class ExhbnAddAction implements CommandHandler {
 	     int maxSize = 10 * 1024 * 1024;
 	     String encType = "utf-8";
 	     
-	     //MultipartRequest객체 생성
 	     MultipartRequest multi 
 	      = new MultipartRequest(request,
 	    		                 realFolder,
@@ -32,7 +31,6 @@ public class ExhbnAddAction implements CommandHandler {
 	    		                 encType, 
 	    		                 new DefaultFileRenamePolicy());
 	     
-		//request로 부터 파라미터 이름에 해당하는 값 얻기
 		String title = multi.getParameter("title");
 		String category = multi.getParameter("category");
 		String description = multi.getParameter("description");
@@ -62,7 +60,7 @@ public class ExhbnAddAction implements CommandHandler {
 		
 		dao.insertexhbn(exhbn);
 		
-		return "/exhbn/exhbnList.jsp";
+		return "/exhbnListAction.do";
 	}
 
 }
