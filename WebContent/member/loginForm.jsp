@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="./resources/css/style,css">
+<link rel="stylesheet" href="../resources/css/styles.css">
 <style>
 .ct{
 	margin-top: 50px;
