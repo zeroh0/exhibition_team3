@@ -29,7 +29,7 @@
         <label class="col-sm-2 control-label">작성자</label>
         <div class="col-sm-3">
               <%-- ${}의 속성값은 자동 형변환처리 및 null 처리, String 인 경우 빈 문자열("")로 처리 --%>
-           <input name="writer" class="form-control" value="${writer}" placeholder="writer">
+           <input name="writer" class="form-control" value="${writer}" placeholder="writer" readonly>
         </div>
       </div>
       

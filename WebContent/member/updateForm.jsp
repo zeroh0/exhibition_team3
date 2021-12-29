@@ -133,6 +133,11 @@
 			return true;
 		}
 	</script>
+	<script>
+		function deleteUser() {
+			location.href="${pageContext.request.contextPath}/deleteMember.do";
+		}
+	</script>
 <style>
 .ct{
 	margin-top: 50px;
@@ -163,9 +168,6 @@
           <div class="col-sm-3">
                <input name="password" type="password" class="form-control" placeholder="password" value="${member.password}" required>
           </div>
-          <div>
-          	<input type="button" value="비밀번호변경"  class="btn btn-success" onclick="changePasswordForm()">
-          </div>
     </div>
     
     <div class="form-group row">
@@ -183,8 +185,8 @@
 	<div class="form-group row">
              <label class="col-sm-2">이메일</label>
              <div class="col-sm-10">
-                <input type="text" name="mail1" maxlength="50" required value="${fn:substring(member.email,0,fn:indexOf(member.email,'@'))}">@
-                <input type="text" name="mail2" maxlength="50" required value="${fn:substring(member.email,fn:indexOf(member.email,'@')+1,fn:length(member.email)) }">
+                <input type="text" name="email1" maxlength="50" value="${fn:substring(member.email,0,fn:indexOf(member.email,'@')) }" required> @ 
+                <input type="text" name="email2" maxlength="50" required value="${fn:substring(member.email,fn:indexOf(member.email,'@')+1,fn:length(member.email)) }">
              </div>
        </div>
 		<div class="form-group row">
@@ -199,7 +201,9 @@
              <label class="col-sm-2">우편번호</label>
              <div class="col-sm-3">
                  <input name="zipcode" id="zipcode" type="text" class="form-control" placeholder="우편번호" value="${member.zipcode}" required>
-                 <input type="button" onclick="Postcode()" value="우편번호 찾기"><br>
+             </div>
+             <div class="col-sm-1" >
+             	 <input type="button" onclick="Postcode()" value="우편번호 찾기" class="btn btn-success"><br>
              </div>
          </div>
           <div class="form-group row">
@@ -231,31 +235,33 @@
           <div class="col-sm-offset-2 col-sm-10">
                <input type="submit" class="btn btn-primary" value="수정">
                <input type="reset"  class="btn btn-warning" value="취소" onclick="reset()">
-               <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">회원탈퇴</button>
           </div>
        </div>
+       
 </form>
+	<button class="btn btn-info" data-toggle="modal" data-target="#deleteModal" style="float:right">회원탈퇴</button>
 </div>
+<jsp:include page="../footer.jsp"/>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">회원탈퇴</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        탈퇴하시겠습니까?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="location.href='deleteMember.jsp'">회원탈퇴</button>
-      </div>
-    </div>
-  </div>
-</div>
+	<!-- Modal -->
+	<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">회원탈퇴</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        탈퇴하시겠습니까?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <a type="button" class="btn btn-primary" onclick="deleteUser()">회원탈퇴</a>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </body>
 </html>

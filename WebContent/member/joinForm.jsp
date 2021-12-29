@@ -75,6 +75,20 @@
 		}
 	</script>
 	<script>
+	/* id check function() */
+	function idChk(){
+	 var id=document.newMember.id.value;
+	 if(id.length==0){
+		 alert("아이디를 입력하세요");
+		 document.newMember.id.focus();
+		 return;
+	 }else{
+	  /* 팝업창 열기 window.open(페이지); <-현재페이지는 opener임. */
+	  window.open('idCheck.jsp?id='+id);
+	 }
+	}
+	</script>
+	<script>
 		function sendEmail(){
 			var mailId = document.newMember.email1.value+'@'+document.newMember.email2.value;
 			var emailPassword = document.getElementById('Emailpassword').value;
@@ -147,10 +161,10 @@
 		}
 	</script>
 	<script>
-	if('${requestScope.msg}' != '') {
-		var message = '${requestScope.msg}';
-		alert(message);
-	}
+		if('${requestScope.msg}' != '') {
+			var message = '${requestScope.msg}';
+			alert(message);
+		}
 	</script>
 <style>
 .ct{
@@ -174,10 +188,9 @@
               <div class="col-sm-3">
                    <input name="id" class="form-control" placeholder="id" required>
               </div>
-              <div>
-                   <input type="button" value="아이디 중복검사"  class="btn btn-success" onclick="idChk()">
+              <div class="col-sm-1">
+              	<input type="button" value="아이디 중복검사"  class="btn btn-success" onclick="idChk()">
               </div>
-              
         </div>
         
         <div class="form-group row">
@@ -202,11 +215,12 @@
         
        <div class="form-group row">
              <label class="col-sm-2">이메일</label>
-             <div class="col-sm-10">
-                <input type="text" name="mail1" maxlength="50" required> @ 
-                <input type="text" name="mail2" maxlength="50" required> 
+             <div class="col-sm-6">
+                <input type="text" name="email1" maxlength="50" required> @ 
+                <input type="text" name="email2" maxlength="50" required> 
                 <input type="button" class="btn btn-success" value="인증번호 전송" data-toggle="modal" data-target="#exampleModal"> 
              </div>
+
        </div>
        
         <div class="form-group row">
@@ -215,7 +229,7 @@
 	              <input name="cert" class="form-control" type="hidden" id="cert" value="" readonly>
 				  <input name="cert_confirm" class="form-control" id="cert_confirm" type="password" value="">
               </div>
-              <div>
+              <div class="col-sm-1">
               		<input type="button" value="확인" class="btn btn-success" onclick="confirm()">
               </div>
         </div>
@@ -234,7 +248,7 @@
              <div class="col-sm-3">
                  <input name="zipcode" id="zipcode" type="text" class="form-control" placeholder="우편번호" required>
              </div>
-             <div>
+             <div class="col-sm-1">
              	<input type="button" onclick="Postcode()" value="우편번호 찾기" class="btn btn-success">
              </div>
          </div>

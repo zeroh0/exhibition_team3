@@ -33,7 +33,11 @@ public class MemberDTO {
         this.register_day = register_day;
     }
 
-    public String getId() {
+    public MemberDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getId() {
         return id;
     }
 

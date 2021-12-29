@@ -1,3 +1,4 @@
+/* mysql */
 create database project;
 use project;
 
@@ -16,21 +17,31 @@ create table member
     register_day  varchar(50)
 );
 
---select * from member;
-
-CREATE TABLE bbs
+create table exhbn
 (
-    num       INT           not null auto_increment PRIMARY KEY,
-    writer    VARCHAR(20)   NOT NULL,
-    subject   VARCHAR(100)  NOT NULL,
-    content   VARCHAR(2048) NOT NULL,
-    readCount INT           NULL DEFAULT 0,
-    password  VARCHAR(20)   NOT NULL,
-    reg_date  VARCHAR(50)   NULL,
-    ip        VARCHAR(30)   NOT NULL,
-    ref       INT           NOT NULL,
-    re_step   INT           NOT NULL,
-    re_level  INT           NOT NULL
+    e_id        int          not null primary key,
+    title       varchar(45)  not null,
+    category    varchar(45)  not null,
+    description varchar(45)  null,
+    price       varchar(45)  not null,
+    location    varchar(45)  not null,
+    period 		varchar(45) 	 not null,
+    time        varchar(45)  not null,
+    image       varchar(100) null
 );
 
---select * from bbs;
+/* oracle */
+create table BBS
+(
+    NUM       NUMBER         not null primary key,
+    WRITER    VARCHAR2(30)   not null,
+    SUBJECT   VARCHAR2(100)  not null,
+    CONTENT   VARCHAR2(2048) not null,
+    READCOUNT NUMBER default 0,
+    PASSWORD  VARCHAR2(20)   not null,
+    REG_DATE  DATE   default sysdate,
+    IP        VARCHAR2(30)   not null,
+    REF       NUMBER         not null,
+    RE_STEP   NUMBER         not null,
+    RE_LEVEL  NUMBER         not null
+)

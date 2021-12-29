@@ -12,18 +12,17 @@
 function confirmDelete(num,pageNum,items,text){
  location.href="./BbsDeleteAction.go?num="+num+"&pageNum="+pageNum+"&items="+items+"&text="+text;
 }
+
 </script>
 </head>
 <body>
 <jsp:include page="../menu.jsp"/>
 <div class="jumbotron">
    <div class="container">
-     <h1 class="display-3">게시판</h1>
+     <h1 class="display-3">bss</h1>
    </div>
 </div>
-<%-- ${bbs.ref}
-${bbs.re_step}
-${bbs.re_level} --%>
+
 <div class="container">
     <form name="newUpdate" 
           action="BbsUpdateAction.go?num=${bbs.num}&pageNum=${page}&items=${items}&text=${text}"
@@ -37,19 +36,19 @@ ${bbs.re_level} --%>
     <div class="form-group row">
         <label class="col-sm-2 control-label">작성자</label>
         <div class="col-sm-3">
-            <input name="writer" class="form-control" value="${bbs.writer}">
+            <input name="writer" class="form-control" value="${bbs.writer}" readonly>
         </div>
     </div>
         <div class="form-group row">
         <label class="col-sm-2 control-label">제목</label>
         <div class="col-sm-3">
-            <input name="subject" class="form-control" value="${bbs.subject}">
+            <input name="subject" class="form-control" id="subject" value="${bbs.subject}">
         </div>
     </div>
     <div class="form-group row">
         <label class="col-sm-2 control-label">내용</label>
         <div class="col-sm-8" style="word-break:break-all;">
-            <textarea rows="5" cols="50" name="content"
+            <textarea rows="5" cols="50" name="content" id="content"
                class="form-control">${bbs.content}</textarea>
         </div>
     </div>
@@ -57,9 +56,10 @@ ${bbs.re_level} --%>
    
     <div class="form-group row">
         <div class="col-sm-offset-2 col-sm-10">
-        	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">삭제
-        	</button>
-             <input type="submit" class="btn btn-success" value="수정">
+        	<c:if test="${member.id eq bbs.writer}">
+	        	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">삭제</button>
+	            <input type="submit" class="btn btn-success" value="수정">
+            </c:if>
             <a href="./BbsListAction.go?pageNum=${page}&items=${items}&text=${text}" class="btn btn-primary">목록</a>
             <a href="./BbsReplyForm.go?id=${member.id}&pageNum=${page}&items=${items}&text=${text}&num=${bbs.num}&ref=${bbs.ref}&re_step=${bbs.re_step}&re_level=${bbs.re_level}" 
             class="btn btn-warning">답변</a>

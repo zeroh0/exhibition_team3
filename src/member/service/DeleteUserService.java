@@ -13,7 +13,7 @@ import member.service.exception.NotMatchPasswordException;
 public class DeleteUserService {
 	MemberDAO memberDAO = MemberDAO.getInstance();
 	
-	public void deleteUser(String sessionID, String password) throws ClassNotFoundException {
+	public void deleteUser(String sessionID) throws ClassNotFoundException {
 		Connection conn = null;
 		try {
 			conn = DBConnection.getConnection();
@@ -23,10 +23,6 @@ public class DeleteUserService {
 			if (member == null) {
 				DBUtil.rollback(conn);
 				throw new NotExistException();
-			}
-			if (!member.getPassword().equals(password)) {
-				DBUtil.rollback(conn);
-				throw new NotMatchPasswordException();
 			}
 			
 			memberDAO.deleteUser(conn, member);

@@ -139,7 +139,7 @@ function checkForm(){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">아니오</button>
-        <button type="button" class="btn btn-primary" onclick='javascript:location.href="./BbsWriteForm.go?id=${sessionScope.member.id}&pageNum=${pageNum}&items=${items}&text=${text}"'>예</button>
+        <button type="button" class="btn btn-primary" onclick='javascript:location.href="<c:url value="/member/loginForm.jsp"/>"'>예</button>
       </div>
     </div>
   </div>

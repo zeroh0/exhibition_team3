@@ -15,18 +15,18 @@ public class DeleteUserHandler implements CommandHandler {
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String password = request.getParameter("password");
+		
 		MemberDTO member = (MemberDTO) request.getSession().getAttribute("member");
 
 		DeleteUserService deleteUserService = new DeleteUserService();
 		
 		try {
-			deleteUserService.deleteUser(member.getId(), password);
+			deleteUserService.deleteUser(member.getId());
 			request.getSession().invalidate();
 			response.sendRedirect(request.getContextPath() + "/index.jsp");
 			return null;
-		} catch (NotExistException | NotMatchPasswordException e) {
-			request.setAttribute("msg","정확한 비밀번호를 입력해주세요.");
+		} catch (NotExistException e) {
+			request.setAttribute("msg","존재하지 않는 아이디입니다.");
 			return FORM_VIEW;
 		}
 	}

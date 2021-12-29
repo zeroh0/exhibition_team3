@@ -29,10 +29,10 @@ public class BbsWriteForm implements CommandHandler {
 	        //파라미터로 넘어온 request의 id에 해당하는 값 얻기
 			String id = request.getParameter("id");
 			
-			//DB에서 id에 해당하는 name정보 얻기
-			BbsDAO dao = BbsDAO.getInstance();
-			String name = dao.getLoginNameById(id);//id에 해당하는 name 얻기메소드
+//			//DB에서 id에 해당하는 name정보 얻기
+//			BbsDAO dao = BbsDAO.getInstance();
+//			String name = dao.getLoginNameById(id);//id에 해당하는 name 얻기메소드
 			
-			request.setAttribute("writer", name);
+			request.setAttribute("writer", id);
 		}
 }
