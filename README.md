@@ -27,6 +27,6 @@ String realFolder = “/Users/zeroh0/Desktop/upload”;
 - exhbn/exhbnDetail.jsp
 
 ``` html
-<!— img태그의 src의 ${exh.image} 전의  경로를 변경 —>
-<img style="width: 300px;" src="/upload/${exh.image}">
+<!— img태그의 src의 경로를 변경 —>
+<img src="/upload/${exh.image}">
 ```
