@@ -18,6 +18,9 @@ create table member
 );
 
 /* oracle */
+create user root identified by 1234;
+grant dba to root;
+
 create sequence exhbn_seq start with 1 increment by 1;
 
 create table exhbn
@@ -48,4 +51,4 @@ create table BBS
     REF       NUMBER         not null,
     RE_STEP   NUMBER         not null,
     RE_LEVEL  NUMBER         not null
-)
+);

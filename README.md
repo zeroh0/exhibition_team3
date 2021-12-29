@@ -1,7 +1,13 @@
 # 전시 / 쇼핑몰 JSP 프로젝트
 ###### exhibition_team3
 
-## 경로 수정
+- JAVA: 1.8
+- SERVER: TOMCAT 9.0
+- DB: MySQL, ORACLE  
+
+<br>
+
+### 경로 수정
 
 **controller**
 

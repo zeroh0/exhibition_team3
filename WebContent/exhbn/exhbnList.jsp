@@ -32,6 +32,8 @@
         <p>${exh.location}</p>
         <p>${exh.period}</p>
         <p>${exh.time}</p>
+        <p><a href="./exhbnDetailAction.do?e_id=${exh.e_id}" 
+            class="btn btn-success" role="button">&raquo;</a>
         <c:if test="${member.id=='admin'}"><!-- 관리자와 로그인 아이디가 같은 경우 버튼 보이기  -->
 				<p>
 				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">삭제</button>
