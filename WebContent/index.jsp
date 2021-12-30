@@ -12,7 +12,7 @@
         <link href="./resources/css/styles.css" rel="stylesheet" />
     </head>
     <body>
-    <%@ include file="menu.jsp"%>
+	<jsp:include page="./menu.jsp"/>
        <!-- Responsive navbar-->
         <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">

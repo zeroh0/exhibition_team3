@@ -125,7 +125,10 @@ function readImage(input) {
 // input file에 change 이벤트 부여
 const inputImage = document.getElementById("input-image")
 inputImage.addEventListener("change", e => {readImage(e.target)})
-</script>    
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../resources/js/scripts.js"></script>    
 </body>
 </html>
 <!-- insert into bbs values (1, 'hong', 'w', 'w', 0, '123', sysdate, '127.0.0.1', 0, 0, 0); -->

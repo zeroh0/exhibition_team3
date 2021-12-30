@@ -104,5 +104,8 @@ function readImage(input) {
 const inputImage = document.getElementById("input-image")
 inputImage.addEventListener("change", e => {readImage(e.target)})
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../resources/js/scripts.js"></script>
 </body>
 </html>
