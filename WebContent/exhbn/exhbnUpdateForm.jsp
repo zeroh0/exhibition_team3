@@ -80,7 +80,6 @@
        <div class="col-sm-offset-2 col-sm-10">
          <input type="submit" value="미술품 수정" class="btn btn-primary">
        </div>
-   
    </div>
    
   </form>

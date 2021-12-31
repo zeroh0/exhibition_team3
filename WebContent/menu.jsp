@@ -34,7 +34,7 @@
                         <li><a class="dropdown-item" href="#!">Popular Items</a></li>
                         <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
                         <c:if test="${member.id=='admin'}">
-							<li>s<a class="dropdown-item" href="<c:url value="./exhbn/exhbnAddForm.jsp"/>">상품등록</a></li>
+							<li><a class="dropdown-item" href="<c:url value="/exhbn/exhbnAddForm.jsp"/>">상품등록</a></li>
 						</c:if>
                     </ul>
                 </li>
