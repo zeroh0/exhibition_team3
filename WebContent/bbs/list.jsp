@@ -21,11 +21,12 @@ function checkForm(){
 </head>
 <body>
 <jsp:include page="../menu.jsp"/>
-<div class="jumbotron">
-   <div class="container">
-      <h1 class="display-3">bbs</h1>
-   </div>
-</div>
+
+<div class="container-fluid py-4 bg-image-full" style="background-image: url('https://www.edwardhopper.net/images/paintings/early-sunday-morning.jpg')">
+			<div class="text-center my-5">
+                <h1 class="text-white fs-3 fw-bolder">User Forum</h1>
+            </div>
+	</div>
 <div class="container">
   <form action="<c:url value="./BbsListAction.go"/>" method="post">  
     <div>
@@ -147,8 +148,5 @@ function checkForm(){
 </div>
 
 <jsp:include page="../footer.jsp"/>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="../resources/js/scripts.js"></script>
 </body>
 </html>

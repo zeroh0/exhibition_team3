@@ -7,11 +7,12 @@
 </head>
 <body>
 <jsp:include page="../menu.jsp"/>
-<div class="jumbotron">
-   <div class="container">
-      <h1 class="display-3">Bbs</h1>
-   </div>
-</div>
+<div class="container py-5 bg-image-full" style="background-image: url('https://sheldonartmuseum.org/Hopper_W_L.jpg')">
+			<div class="text-center my-5">
+                <h1 class="text-white fs-3 fw-bolder">User Forum</h1>
+            </div>
+	</div>
+<div style="background:transparent"class="jumbotron">
 <div class="container">
    <form name="newWrite" action="${pageContext.request.contextPath}/BbsWriteAction.go"
       class="form-horizontal" 
@@ -68,10 +69,7 @@
  
    </form>
 </div>
-
+</div>
 <jsp:include page="../footer.jsp"/>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="../resources/js/scripts.js"></script>
 </body>
 </html>

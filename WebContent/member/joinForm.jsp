@@ -254,7 +254,7 @@
 						<span class="focus-input100"></span>
 					</div>
 		         	 	<input type="button" onclick="Postcode()" value="우편번호 찾기" class="btn btn-success btn-sm">
-					
+					<span id="guide" style="color:#999;display:none"></span>
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">도로명주소</span>
 						<input class="input100" name="roadAddress" id="roadAddress" type="text" placeholder="도로명주소" required>

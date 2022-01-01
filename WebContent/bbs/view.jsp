@@ -17,12 +17,12 @@ function confirmDelete(num,pageNum,items,text){
 </head>
 <body>
 <jsp:include page="../menu.jsp"/>
-<div class="jumbotron">
-   <div class="container">
-     <h1 class="display-3">bss</h1>
-   </div>
-</div>
-
+	<div class="container py-5 bg-image-full"  style="background-image: url('https://blog.kakaocdn.net/dn/cXmYb7/btqF63JmRO2/EK7fWF42PFAEeNtjBeUzbk/img.jpg?original')">
+			<div class="text-center my-5">
+                <h1 class="text-white fs-3 fw-bolder">User Forum</h1>
+            </div>
+	</div>
+<div style="background:transparent" class="jumbotron">
 <div class="container">
     <form name="newUpdate" 
           action="BbsUpdateAction.go?num=${bbs.num}&pageNum=${page}&items=${items}&text=${text}"
@@ -61,8 +61,10 @@ function confirmDelete(num,pageNum,items,text){
 	            <input type="submit" class="btn btn-success" value="수정">
             </c:if>
             <a href="./BbsListAction.go?pageNum=${page}&items=${items}&text=${text}" class="btn btn-primary">목록</a>
+            <c:if test="${not empty member}">
             <a href="./BbsReplyForm.go?id=${member.id}&pageNum=${page}&items=${items}&text=${text}&num=${bbs.num}&ref=${bbs.ref}&re_step=${bbs.re_step}&re_level=${bbs.re_level}" 
             class="btn btn-warning">답변</a>
+            </c:if>
 
         
         </div>
@@ -81,6 +83,7 @@ function confirmDelete(num,pageNum,items,text){
 	 	
 	</div>
     <hr>
+</div>
 </div>
 <jsp:include page="../footer.jsp"/>
 
@@ -125,10 +128,7 @@ function readImage(input) {
 // input file에 change 이벤트 부여
 const inputImage = document.getElementById("input-image")
 inputImage.addEventListener("change", e => {readImage(e.target)})
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="../resources/js/scripts.js"></script>    
+</script>    
 </body>
 </html>
 <!-- insert into bbs values (1, 'hong', 'w', 'w', 0, '123', sysdate, '127.0.0.1', 0, 0, 0); -->

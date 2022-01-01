@@ -60,9 +60,9 @@
 						</div>
 					</div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">Login</button>
+						<input type="submit" class="login100-form-btn" value="Login">
 					</div>
-					<p class="text-muted text-center mt-2 ml-2 mb-0">회원이 아니신가요? <a href="joinForm.jsp" class="text-primary ml-1">회원가입</a></p>
+					<div class="text-muted text-center mt-2 ml-2 mb-0">회원이 아니신가요? <a href="joinForm.jsp" class="text-primary ml-1">회원가입</a></p>
 					
 				</form>
 				
