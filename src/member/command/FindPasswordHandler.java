@@ -10,7 +10,9 @@ import mvc.command.CommandHandler;
 
 public class FindPasswordHandler implements CommandHandler {
 	
-	private static final String FORM_VIEW = "/member/joinForm.jsp";
+	private static final String FORM_VIEW = "./member/findPasswordForm.jsp?error=";
+	private final String exist = "0";
+	private final String notExist = "1";
 	
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -23,11 +25,12 @@ public class FindPasswordHandler implements CommandHandler {
 		
 		try {
 			MemberDTO member = findPasswordService.findPassword(id, email);
-			request.setAttribute("findPassword", member.getPassword());
-			return "/member/findPasswordSuccess.jsp";
+			request.getSession().setAttribute("findId", member.getPassword());
+			response.sendRedirect(FORM_VIEW + exist);
+			return null;
 		} catch (NotExistException e) {
-			request.setAttribute("msg", "존재하지 않는 계정입니다.");
-			return FORM_VIEW;
+			response.sendRedirect(FORM_VIEW + notExist);
+			return null;
 		}		
 	}
 	

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html >
     <head>
@@ -12,7 +13,7 @@
         <link href="./resources/css/styles.css" rel="stylesheet" />
     </head>
     <body>
-	<jsp:include page="./menu.jsp"/>
+    <%@ include file="menu.jsp"%>
        <!-- Responsive navbar-->
         <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -30,10 +31,10 @@
         </nav> -->
        
         <!-- Header - set the background image for the header in the line below-->
-        <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
+        <header class="py-5 bg-image-full" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Vincent_Willem_van_Gogh_058.jpg/1920px-Vincent_Willem_van_Gogh_058.jpg')">
             <div class="text-center my-5">
-                <h1 class="text-white fs-3 fw-bolder">XX EXhibition</h1>
-                <p class="text-white-50 mb-0">Landing Page Template</p>
+                <h1 class="text-white fs-3 fw-bolder">Art Gallery</h1>
+                <p class="text-black-50 mb-0 fw-bolder">by Group3</p>
             </div>
         </header>
         <!-- Content section-->
@@ -41,15 +42,15 @@
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <h2>Full Width Backgrounds</h2>
-                        <p class="lead">A single, lightweight helper class allows you to add engaging, full width background images to sections of your page.</p>
-                        <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in the universe.</p>
+                        <h2 class="text-center">New Thrilling Masterpiece</h2>
+                        <p class="lead text-center">새로운,</p>
+                        <p class="mb-0 text-center">다채로운</p>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Image element - set the background image for the header in the line below-->
-        <div class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
+        <div class="py-5 bg-image-full" style="background-image: url('http://art-vangogh.com/image/Arles%20(1888-1889)/106%20Starry%20Night%20Over%20the%20Rhone.jpg')">
             <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
             <div style="height: 20rem"></div>
         </div>
@@ -58,9 +59,9 @@
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <h2>Engaging Background Images</h2>
-                        <p class="lead">The background images used in this template are sourced from Unsplash and are open source and free to use.</p>
-                        <p class="mb-0">I can't tell you how many people say they were turned off from science because of a science teacher that completely sucked out all the inspiration and enthusiasm they had for the course.</p>
+                        <h2>Engaging New Art works</h2>
+                        <p class="lead">The new products of our gallery</p>
+                        <p class="mb-0">very new and very thrilling experience</p>
                     </div>
                 </div>
             </div>

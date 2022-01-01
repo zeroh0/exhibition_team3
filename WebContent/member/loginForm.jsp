@@ -1,62 +1,73 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-		<meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>로그인</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="./resources/assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../resources/css/styles.css" rel="stylesheet" />
-        
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="../resources/css/styles.css">
-<style>
-.ct{
-	margin-top: 50px;
-}
-</style>
-    <title>로그인</title>
+<title>Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<link rel="stylesheet" type="text/css" href="../resources/vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<link rel="stylesheet" type="text/css" href="../resources/vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css" href="../resources/vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css" href="../resources/vendor/animsition/css/animsition.min.css">
+<link rel="stylesheet" type="text/css" href="../resources/vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="../resources/vendor/daterangepicker/daterangepicker.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/util.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/main.css">
 </head>
 <body>
-<jsp:include page="/menu.jsp"/>
+	<jsp:include page="/menu.jsp"/>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Nighthawks_by_Edward_Hopper_1942.jpg/1024px-Nighthawks_by_Edward_Hopper_1942.jpg');">
+					<span class="login100-form-title-1">Sign In</span>
+				</div>
+				<%
+        		 String error = request.getParameter("error");
+          		  if(error!=null){
+          		  out.print("<div class='alert alert-danger'>");
+          		  out.print("아이디와 비밀번호를 확인해 주세요");
+          		  out.print("</div>");
+          		 }
+     		 	 %>
+				<form class="login100-form validate-form" action="${pageContext.request.contextPath}/login.do" method="post">
+					<div class="wrap-input100">
+						<span class="label-input100">ID</span>
+						<input class="input100" type="text" name="id" placeholder="Enter ID" required autofocus >
+						<span class="focus-input100"></span>
+					</div>
+	
+					<div class="wrap-input100">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="password" placeholder="Enter password">
+						<span class="focus-input100"></span>
+					</div>
 
-<header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
-     <div class="text-center my-5">
-         <h1 class="text-white fs-3 fw-bolder">Login</h1>
-         <p class="text-gray-50 mb-0">Personal Information</p>
-     </div>
-</header>
-<div class="container ct" align="center">
-   <div class="col-md-4 col-md-offset-4">
-        <h3 class="form-signin-heading">Please sign in</h3>
-        <%
-        	 String error = request.getParameter("error");
-            if(error!=null){
-          	  out.print("<div class='alert alert-danger'>");
-          	  out.print("아이디와 비밀번호를 확인해 주세요");
-          	  out.print("</div>");
-            }
-        %> 
- 	<form action="${pageContext.request.contextPath}/login.do" method="post">
-    	<div class="form-group">
-            <label for="inputUserName" class="sr-only">아이디</label>
-            <input type="text" class="form-control" placeholder="ID" name="id" required autofocus>
-        </div>
-        <div class="form-group">
-            <label class="sr-only" for="inputPassword">비밀번호</label>
-            <input type="password" class="form-control" placeholder="Password" name="password" required>
-        </div>
-        <button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
-        <button class="btn btn btn-lg btn-secondary btn-block" type="button" 
-              onclick="location.href='joinForm.jsp'">회원가입</button>
-       </form>
-   </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="../resources/js/scripts.js"></script>
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">Remember me</label>
+						</div>
+						
+						<div>
+							<div>
+							<a href="findIdForm.jsp" class="txt1">아이디를 잊으셨나요?</a>
+							</div>
+							<a href="findPasswordForm.jsp" class="txt1">비밀번호를 잊으셨나요?</a>
+						</div>
+					</div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">Login</button>
+					</div>
+					<p class="text-muted text-center mt-2 ml-2 mb-0">회원이 아니신가요? <a href="joinForm.jsp" class="text-primary ml-1">회원가입</a></p>
+					
+				</form>
+				
+			</div>
+		</div>
+	</div>
 </body>
 </html>

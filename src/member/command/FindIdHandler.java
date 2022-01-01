@@ -13,7 +13,10 @@ import mvc.command.CommandHandler;
 
 public class FindIdHandler implements CommandHandler {
 	
-	private static final String FORM_VIEW = "/member/findIdForm.jsp";
+	private static final String FORM_VIEW = "./member/findIdForm.jsp?error=";
+	private final String exist = "0";
+	private final String notExist = "1";
+
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -26,11 +29,12 @@ public class FindIdHandler implements CommandHandler {
 		
 		try {
 			MemberDTO member = findIdService.findId(name, email);
-			request.setAttribute("findId", member.getId());
-			return "/member/findIdSuccess.jsp";
+			request.getSession().setAttribute("findId", member.getId()); // session으로 하면 안되는 거 같지만? 일단 작동만 하도록 세션으로 설정해놨다..
+			response.sendRedirect(FORM_VIEW + exist); // sendRedirect가 아닌 다른 방식으로 하면 레이아웃, 디자인이 적용이 안된다... 우엑  🤯 (비밀번호 찾기도 마찬가지)
+			return null;
 		} catch (NotExistException e) {
-			request.setAttribute("msg", "존재하지 않는 계정입니다.");
-			return FORM_VIEW;
+			response.sendRedirect(FORM_VIEW + notExist);
+			return null;
 		}
 		
 	}

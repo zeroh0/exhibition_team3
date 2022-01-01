@@ -7,6 +7,6 @@
 <title>비밀번호 찾기</title>
 </head>
 <body>
-	찾으시는 ID: ${findPassword}
+	찾으시는 Password: ${findPassword}
 </body>
 </html>

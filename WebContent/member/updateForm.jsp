@@ -5,7 +5,23 @@
 <head>
 	<title>회원정보수정</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link href="../resources/css/styles.css" rel="stylesheet" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../resources/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="../resources/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -146,103 +162,102 @@
 </head>
 <body>
 <jsp:include page="/menu.jsp"/>
-<header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
-     <div class="text-center my-5">
-         <h1 class="text-white fs-3 fw-bolder">Update</h1>
-         <p class="text-gray-50 mb-0">Personal Information</p>
-     </div>
-</header>
-
-<c:set var="member" value="${sessionScope.member}"/>
-<div class="container ct">
-<form action="${pageContext.request.contextPath}/updateMember.do" method="post" 
-	class="form-horizontal" name="newMember" onsubmit="return checkForm()">
-	<div class="form-group row">
-         <label class="col-sm-2">아이디</label>
-         <div class="col-sm-3">
-              <input name="id" type="text" class="form-control" placeholder="id" value="${member.id}" readonly>
-         </div>
-    </div>
-	<div class="form-group row">
-          <label class="col-sm-2">비밀번호</label>
-          <div class="col-sm-3">
-               <input name="password" type="password" class="form-control" placeholder="password" value="${member.password}" required>
-          </div>
-    </div>
-    
-    <div class="form-group row">
-          <label class="col-sm-2">비밀번호확인</label>
-          <div class="col-sm-3">
-               <input name="password_chk" type="password" class="form-control" placeholder="password" value="${member.password}" required>
-          </div>
-    </div>
-	<div class="form-group row">
-           <label class="col-sm-2">이름</label>
-           <div class="col-sm-3">
-                <input name="name" type="text" class="form-control" placeholder="name" required value="${member.name}">
-           </div>
-     </div>
-	<div class="form-group row">
-             <label class="col-sm-2">이메일</label>
-             <div class="col-sm-10">
-                <input type="text" name="email1" maxlength="50" value="${fn:substring(member.email,0,fn:indexOf(member.email,'@')) }" required> @ 
-                <input type="text" name="email2" maxlength="50" required value="${fn:substring(member.email,fn:indexOf(member.email,'@')+1,fn:length(member.email)) }">
-             </div>
-       </div>
-		<div class="form-group row">
-         <label class="col-sm-2">전화번호</label>
-         <div class="col-sm-5">
-               <input maxlength="3" size="4" name="phone1" value="${fn:substring(member.phone,0,3)}">
-				- <input maxlength="4" size="4" name="phone2" value="${fn:substring(member.phone,4,8)}"> -
-				<input maxlength="4" size="4" name="phone3" value="${fn:substring(member.phone,9,13)}">
-         </div>
-       </div>
-		<div class="form-group row">
-             <label class="col-sm-2">우편번호</label>
-             <div class="col-sm-3">
-                 <input name="zipcode" id="zipcode" type="text" class="form-control" placeholder="우편번호" value="${member.zipcode}" required>
-             </div>
-             <div class="col-sm-1" >
-             	 <input type="button" onclick="Postcode()" value="우편번호 찾기" class="btn btn-success"><br>
-             </div>
-         </div>
-          <div class="form-group row">
-             <label class="col-sm-2">도로명주소</label>
-             <div class="col-sm-5">
-                 <input name="roadAddress" id="roadAddress"  type="text" class="form-control" placeholder="도로명주소" value="${member.roadAddress}" required>
-             </div>
-         </div>
-         <div class="form-group row">
-             <label class="col-sm-2">지번주소</label>
-             <div class="col-sm-5">
-                 <input name="jibunAddress" id="jibunAddress"  type="text" class="form-control" placeholder="지번주소" value="${member.jibunAddress}" required>
-             </div>
-         </div>
-         <span id="guide" style="color:#999;display:none"></span>
-         <div class="form-group row">
-             <label class="col-sm-2">상세주소</label>
-             <div class="col-sm-5">
-                 <input name="detailAddress"  id="detailAddress" type="text" class="form-control" placeholder="상세주소" value="${member.detailAddress}" required>
-             </div>
-         </div>
-         <div class="form-group row">
-             <label class="col-sm-2">참고항목</label>
-             <div class="col-sm-3">
-                 <input name="extraAddress"id="extraAddress" type="text" class="form-control" placeholder="참고항목" value="${member.extraAddress}" required>
-             </div>
-         </div>
-		<div class="form-gorup row">
-          <div class="col-sm-offset-2 col-sm-10">
-               <input type="submit" class="btn btn-primary" value="수정">
-               <input type="reset"  class="btn btn-warning" value="취소" onclick="reset()">
-          </div>
-       </div>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Nighthawks_by_Edward_Hopper_1942.jpg/1024px-Nighthawks_by_Edward_Hopper_1942.jpg');">
+					<span class="login100-form-title-1">Information Edit</span>
+				</div>
+				<form class="login100-form validate-form" action="${pageContext.request.contextPath}/join.do" method="post" 
+					name="newMember" onsubmit="return checkForm()">
+					
+					<%-- 아이디 생성 --%>
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">ID</span>
+						<input class="input100" name="id" placeholder="Enter ID" required>
+						<span class="focus-input100"></span>
+					</div>
+				
+					<%-- 비밀번호 확인 --%>
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">비밀번호</span>
+						<input class="input100" name="password" type="password" placeholder="Password" required>
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">번호확인</span>
+						<input class="input100" name="password_chk" type="password" placeholder="Password Confirm" required>
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-36">
+						<span class="label-input100">이름</span>
+						<input class="input100" name="name" placeholder="name" required>
+						<span class="focus-input100"></span>
+					</div>
+					
+					<%--이메일 확인 --%>
+					<div class="wrap-input100 validate-input m-b-30">
+						<span class="label-input100">Email</span>
+						<input type="text" name="email1" maxlength="50" required> @ 
+               			<input type="text" name="email2" maxlength="50" required>
+               			<span class="focus-input100"></span>
+					</div>
+					
+					
+					<%-- 인적사항 수정필요--%>
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">핸드폰</span>
+						<input maxlength="3" size="4" name="phone1" required>
+				 		- <input maxlength="4" size="4" name="phone2" required> -
+						<input maxlength="4" size="4" name="phone3" required>
+					</div>
+					
+					<%-- 주소입력 --%>
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">우편번호</span>
+						<input class="input100" name="zipcode" id="zipcode" type="text" placeholder="우편번호" required>
+						<span class="focus-input100"></span>
+					</div>
+		         	 	<input type="button" onclick="Postcode()" value="우편번호 찾기" class="btn btn-success btn-sm">
+					
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">도로명주소</span>
+						<input class="input100" name="roadAddress" id="roadAddress" type="text" placeholder="도로명주소" required>
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">지번주소</span>
+						<input class="input100" name="jibunAddress" id="jibunAddress"  type="text" class="form-control" placeholder="지번주소" required>
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">상세주소</span>
+						<input class="input100" name="detailAddress"  id="detailAddress" type="text" class="form-control" placeholder="상세주소" required>
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">참고항목</span>
+						<input class="input100" name="extraAddress"id="extraAddress" type="text" class="form-control" placeholder="참고항목" required>
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="form-gorup row">
+         				<div class="col-sm-offset-2">
+              			<input type="submit" class="btn btn-success" value="등록">
+               			<input type="reset"  class="btn btn-warning" value="취소" onclick="reset()">
+          			</div>
        
+       </div>
 </form>
 	<button class="btn btn-info" data-toggle="modal" data-target="#deleteModal" style="float:right">회원탈퇴</button>
 </div>
-<jsp:include page="../footer.jsp"/>
-
+</div>
+</div>
 	<!-- Modal -->
 	<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
