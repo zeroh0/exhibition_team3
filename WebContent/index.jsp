@@ -11,6 +11,20 @@
         <link rel="icon" type="image/x-icon" href="./resources/assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="./resources/css/styles.css" rel="stylesheet" />
+        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="../resources/vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+		<link rel="stylesheet" type="text/css" href="../resources/vendor/animate/animate.css">
+		<link rel="stylesheet" type="text/css" href="../resources/vendor/css-hamburgers/hamburgers.min.css">
+		<link rel="stylesheet" type="text/css" href="../resources/vendor/animsition/css/animsition.min.css">
+		<link rel="stylesheet" type="text/css" href="../resources/vendor/select2/select2.min.css">
+		<link rel="stylesheet" type="text/css" href="../resources/vendor/daterangepicker/daterangepicker.css">
+		<link rel="stylesheet" type="text/css" href="../resources/css/util.css">
+		<link rel="stylesheet" type="text/css" href="../resources/css/main.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <body>
     <%@ include file="menu.jsp"%>
