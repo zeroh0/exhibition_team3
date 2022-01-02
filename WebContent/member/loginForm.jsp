@@ -3,12 +3,9 @@
 <html>
 <head>
 <title>Login</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../resources/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
@@ -19,13 +16,9 @@
 	<link rel="stylesheet" type="text/css" href="../resources/vendor/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" type="text/css" href="../resources/css/util.css">
 	<link rel="stylesheet" type="text/css" href="../resources/css/main.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </head>
 <body>
-	<jsp:include page="/menu.jsp"/>
+	<jsp:include page="../menu.jsp"/>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -67,9 +60,9 @@
 						</div>
 					</div>
 					<div class="container-login100-form-btn">
-						<input type="submit" class="login100-form-btn" value="Login">
+						<button class="login100-form-btn">Login</button>
 					</div>
-					<div class="text-muted text-center mt-2 ml-2 mb-0">회원이 아니신가요? <a href="joinForm.jsp" class="text-primary ml-1">회원가입</a></p>
+					<p class="text-muted text-center mt-2 ml-2 mb-0">회원이 아니신가요? <a href="joinForm.jsp" class="text-primary ml-1">회원가입</a></p>
 					
 				</form>
 				

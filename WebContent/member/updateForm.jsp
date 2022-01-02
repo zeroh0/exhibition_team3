@@ -6,7 +6,9 @@
 	<title>회원정보수정</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	
+	<link rel="stylesheet" type="text/css" href="../resources/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/main.css">
 	<link rel="stylesheet" type="text/css" href="../resources/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
@@ -15,9 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="../resources/vendor/animsition/css/animsition.min.css">
 	<link rel="stylesheet" type="text/css" href="../resources/vendor/select2/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="../resources/vendor/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="../resources/css/util.css">
-	<link rel="stylesheet" type="text/css" href="../resources/css/main.css">
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -164,40 +164,40 @@
 				<div class="login100-form-title" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Nighthawks_by_Edward_Hopper_1942.jpg/1024px-Nighthawks_by_Edward_Hopper_1942.jpg');">
 					<span class="login100-form-title-1">Information Edit</span>
 				</div>
-				<form class="login100-form validate-form" action="${pageContext.request.contextPath}/updateMember.do" method="post" 
+				<form class="login100-form validate-form" action="${pageContext.request.contextPath}/join.do" method="post" 
 					name="newMember" onsubmit="return checkForm()">
 					
 					<%-- 아이디 생성 --%>
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">ID</span>
-						<input class="input100" name="id" placeholder="Enter ID" value="${member.id }" required readonly>
+						<input class="input100" name="id" placeholder="Enter ID" required>
 						<span class="focus-input100"></span>
 					</div>
 				
 					<%-- 비밀번호 확인 --%>
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">비밀번호</span>
-						<input class="input100" name="password" type="password" placeholder="Password" value="${member.password }" required>
+						<input class="input100" name="password" type="password" placeholder="Password" required>
 						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">번호확인</span>
-						<input class="input100" name="password_chk" type="password" placeholder="Password Confirm" value="${member.password }" required>
+						<input class="input100" name="password_chk" type="password" placeholder="Password Confirm" required>
 						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-36">
 						<span class="label-input100">이름</span>
-						<input class="input100" name="name" placeholder="name" value="${member.name }" required>
+						<input class="input100" name="name" placeholder="name" required>
 						<span class="focus-input100"></span>
 					</div>
 					
 					<%--이메일 확인 --%>
 					<div class="wrap-input100 validate-input m-b-30">
 						<span class="label-input100">Email</span>
-						<input type="text" name="email1" maxlength="50" value="${fn:substring(member.email,0,fn:indexOf(member.email,'@')) }" required> @ 
-               			<input type="text" name="email2" maxlength="50" value="${fn:substring(member.email,fn:indexOf(member.email,'@')+1,fn:length(member.email)) }" required>
+						<input type="text" name="email1" maxlength="50" required> @ 
+               			<input type="text" name="email2" maxlength="50" required>
                			<span class="focus-input100"></span>
 					</div>
 					
@@ -205,40 +205,40 @@
 					<%-- 인적사항 수정필요--%>
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">핸드폰</span>
-						<input maxlength="3" size="4" name="phone1" value="${fn:substring(member.phone,0,3)}" required>
-				 		- <input maxlength="4" size="4" name="phone2" value="${fn:substring(member.phone,4,8)}" required> -
-						<input maxlength="4" size="4" name="phone3" value="${fn:substring(member.phone,9,13)}" required>
+						<input maxlength="3" size="4" name="phone1" required>
+				 		- <input maxlength="4" size="4" name="phone2" required> -
+						<input maxlength="4" size="4" name="phone3" required>
 					</div>
 					
 					<%-- 주소입력 --%>
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">우편번호</span>
-						<input class="input100" name="zipcode" id="zipcode" type="text" placeholder="우편번호" value="${member.zipcode}" required readonly>
+						<input class="input100" name="zipcode" id="zipcode" type="text" placeholder="우편번호" required>
 						<span class="focus-input100"></span>
 					</div>
 		         	 	<input type="button" onclick="Postcode()" value="우편번호 찾기" class="btn btn-success btn-sm">
-					<span id="guide" style="color:#999;display:none"></span>
+					
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">도로명주소</span>
-						<input class="input100" name="roadAddress" id="roadAddress" type="text" placeholder="도로명주소" value="${member.roadAddress}" required readonly>
+						<input class="input100" name="roadAddress" id="roadAddress" type="text" placeholder="도로명주소" required>
 						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">지번주소</span>
-						<input class="input100" name="jibunAddress" id="jibunAddress"  type="text" class="form-control" placeholder="지번주소" value="${member.jibunAddress}" required readonly>
+						<input class="input100" name="jibunAddress" id="jibunAddress"  type="text" class="form-control" placeholder="지번주소" required>
 						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">상세주소</span>
-						<input class="input100" name="detailAddress"  id="detailAddress" type="text" class="form-control" placeholder="상세주소" value="${member.detailAddress}" required>
+						<input class="input100" name="detailAddress"  id="detailAddress" type="text" class="form-control" placeholder="상세주소" required>
 						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">참고항목</span>
-						<input class="input100" name="extraAddress"id="extraAddress" type="text" class="form-control" placeholder="참고항목" value="${member.extraAddress}" required readonly>
+						<input class="input100" name="extraAddress"id="extraAddress" type="text" class="form-control" placeholder="참고항목" required>
 						<span class="focus-input100"></span>
 					</div>
 					
